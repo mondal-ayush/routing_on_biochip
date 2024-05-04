@@ -1,0 +1,75 @@
+Hey there, I was working on the project "Droplet Routing on Hexagonal Microfluidic Biochips Using Genetic Algorithm" where i have tried to implement the routing problem on a grid with some obstacles on it. Firstly, I have implented it on a square grid and then on hexagonal grid. It was observed that routing on a hexagonal grid is more efficient than on a sqaure grid because in hexagonal grid we get 6 possible movements('left', 'right', 'top-left', 'bottom-right', 'top-right', 'bottom-left) when compared to a sqaure grid which has ony 4 ('top', 'down', 'left', 'right').
+
+Now, I have the python codes for both the cases, and want to compare their efficiency and export a comaparison graph. How can I do this? Help me in every possible way to get this agenda done.
+
+------------------------------------------------------------------------
+
+test.py - use a separate python file for testing both the sqaure grid and hexagonal grid codes
+remove hard coded inputs
+export test case reports in a csv file containing - grid size + time taken
+compare both the reports
+
+------------------------------------------------------------------------
+
+square_grid_sizes = [10, 20, 30, 40, 50]
+obstacles = []
+start = []
+end = []
+pop_size = []
+generation = []
+square_times = [0.5, 1.2, 2.0, 3.5, 5.0]
+
+------------------------------------------------------------------------
+JSON format for test cases:
+* This is a single test case, multiple test cases can be clubbed under a list [{}, {}, {}]
+{
+	"n": 6,
+	"m": 6,
+	"obstacles": [
+		[1, 1],
+		[1, 2],
+		[2, 1],
+		[2, 4],
+		[3, 4],
+		[4, 2]
+	],
+	"start": [0, 0],
+	"end": [5, 5],
+	"pop_size": 50,
+	"generations": 100
+}
+
+------------------------------------------------------------------------
+Grid simulation:
+
+Requirements :
+	- A grid that looks like excel sheet with borders
+	- A blank space at the bottom of the grid that contains instructions and clickable buttons
+	- left click denotes putting obstacles in 'black'
+	- middle click denotes putting the start point in 'green'
+	- right click denotes putting the end point in 'red'
+	- A button named "Export as json" that exports the grid configuration as :
+		{
+			"n": 6,
+			"m": 6,
+			"obstacles": [
+			[1, 1],
+			[1, 2],
+			[2, 1],
+			[2, 4],
+			[3, 4],
+			[4, 2]
+			],
+			"start": [0, 0],
+			"end": [5, 5],
+			"pop_size": 50,
+			"generations": 100
+		}
+		where, 
+			n, m - user inputs for grid size
+			obstacles is a list that capture all the obstacles
+			start and end points
+			pop_size and generations are going to be same for all cases
+			start the grid indexing from (0,0) upto (n-1,m-1)
+			
+
